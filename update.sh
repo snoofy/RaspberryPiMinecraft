@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: James A. Chambers - https://jamesachambers.com/
 # More information at https://jamesachambers.com/raspberry-pi-minecraft-server-script-with-startup-service/
-# GitHub Repository: https://github.com/TheRemote/RaspberryPiMinecraft
+# GitHub Repository: https://github.com/snoofy/RaspberryPiMinecraft
 # Calls the latest SetupMinecraft.sh setup script
 
 # Set path variable
@@ -19,4 +19,4 @@ if [[ $(id -u) = 0 ]]; then
    exit 1
 fi
 
-curl https://raw.githubusercontent.com/TheRemote/RaspberryPiMinecraft/master/SetupMinecraft.sh | bash
+curl https://raw.githubusercontent.com/snoofy/RaspberryPiMinecraft/master/SetupMinecraft.sh | bash

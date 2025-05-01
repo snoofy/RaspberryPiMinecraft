@@ -1,13 +1,13 @@
 #!/bin/bash
 # Minecraft Server Installation Script - James A. Chambers - https://jamesachambers.com
 # More information at https://jamesachambers.com/raspberry-pi-minecraft-server-script-with-startup-service/
-# GitHub Repository: https://github.com/TheRemote/RaspberryPiMinecraft
+# GitHub Repository: https://github.com/snoofy/RaspberryPiMinecraft
 
 # To run the setup script use:
-# curl https://raw.githubusercontent.com/TheRemote/RaspberryPiMinecraft/master/SetupMinecraft.sh | bash
+# curl https://raw.githubusercontent.com/snoofy/RaspberryPiMinecraft/master/SetupMinecraft.sh | bash
 
 # Minecraft server version
-Version="1.21.4"
+Version="1.21.5"
 # Set to AllowLocalCopy="1" if you make changes to the script otherwise any changes will be discarded and the latest online version will run
 AllowLocalCopy="0"
 
@@ -134,7 +134,7 @@ Update_Scripts() {
 
   # Download start.sh from repository
   Print_Style "Grabbing start.sh from repository..." "$YELLOW"
-  curl -H "Accept-Encoding: identity" -L -o start.sh https://raw.githubusercontent.com/TheRemote/RaspberryPiMinecraft/master/start.sh
+  curl -H "Accept-Encoding: identity" -L -o start.sh https://raw.githubusercontent.com/snoofy/RaspberryPiMinecraft/master/start.sh
   chmod +x start.sh
   sed -i "s:dirname:$DirName:g" start.sh
   sed -i "s:memselect:$MemSelected:g" start.sh
@@ -143,21 +143,21 @@ Update_Scripts() {
 
   # Download stop.sh from repository
   echo "Grabbing stop.sh from repository..."
-  curl -H "Accept-Encoding: identity" -L -o stop.sh https://raw.githubusercontent.com/TheRemote/RaspberryPiMinecraft/master/stop.sh
+  curl -H "Accept-Encoding: identity" -L -o stop.sh https://raw.githubusercontent.com/snoofy/RaspberryPiMinecraft/master/stop.sh
   chmod +x stop.sh
   sed -i "s:dirname:$DirName:g" stop.sh
   sed -i "s<pathvariable<$PATH<g" stop.sh
 
   # Download restart.sh from repository
   echo "Grabbing restart.sh from repository..."
-  curl -H "Accept-Encoding: identity" -L -o restart.sh https://raw.githubusercontent.com/TheRemote/RaspberryPiMinecraft/master/restart.sh
+  curl -H "Accept-Encoding: identity" -L -o restart.sh https://raw.githubusercontent.com/snoofy/RaspberryPiMinecraft/master/restart.sh
   chmod +x restart.sh
   sed -i "s:dirname:$DirName:g" restart.sh
   sed -i "s<pathvariable<$PATH<g" restart.sh
 
   # Download permissions.sh from repository
   echo "Grabbing fixpermissions.sh from repository..."
-  curl -H "Accept-Encoding: identity" -L -o fixpermissions.sh https://raw.githubusercontent.com/TheRemote/RaspberryPiMinecraft/master/fixpermissions.sh
+  curl -H "Accept-Encoding: identity" -L -o fixpermissions.sh https://raw.githubusercontent.com/snoofy/RaspberryPiMinecraft/master/fixpermissions.sh
   chmod +x fixpermissions.sh
   sed -i "s:dirname:$DirName:g" fixpermissions.sh
   sed -i "s:userxname:$UserName:g" fixpermissions.sh
@@ -165,14 +165,14 @@ Update_Scripts() {
 
   # Download update.sh from repository
   echo "Grabbing update.sh from repository..."
-  curl -H "Accept-Encoding: identity" -L -o update.sh https://raw.githubusercontent.com/TheRemote/RaspberryPiMinecraft/master/update.sh
+  curl -H "Accept-Encoding: identity" -L -o update.sh https://raw.githubusercontent.com/snoofy/RaspberryPiMinecraft/master/update.sh
   chmod +x update.sh
   sed -i "s<pathvariable<$PATH<g" update.sh
 }
 
 # Updates Minecraft service
 Update_Service() {
-  sudo curl -H "Accept-Encoding: identity" -L -o /etc/systemd/system/minecraft.service https://raw.githubusercontent.com/TheRemote/RaspberryPiMinecraft/master/minecraft.service
+  sudo curl -H "Accept-Encoding: identity" -L -o /etc/systemd/system/minecraft.service https://raw.githubusercontent.com/snoofy/RaspberryPiMinecraft/master/minecraft.service
   sudo sed -i "s:userxname:$UserName:g" /etc/systemd/system/minecraft.service
   sudo sed -i "s:dirname:$DirName:g" /etc/systemd/system/minecraft.service
   sudo systemctl daemon-reload
@@ -271,7 +271,7 @@ Fix_Permissions() {
 
 Print_Style "Minecraft Server installation script by James A. Chambers - https://jamesachambers.com/" "$MAGENTA"
 Print_Style "Version $Version will be installed.  To change this, open SetupMinecraft.sh and change the \"Version\" variable to the version you want to install." "$MAGENTA"
-Print_Style "Latest version is always available at https://github.com/TheRemote/RaspberryPiMinecraft" "$MAGENTA"
+Print_Style "Latest version is always available at https://github.com/snoofy/RaspberryPiMinecraft" "$MAGENTA"
 Print_Style "Don't forget to set up port forwarding on your router!  The default port is 25565" "$MAGENTA"
 
 cd "$DirName"
@@ -279,7 +279,7 @@ cd "$DirName"
 if [[ -e "SetupMinecraft.sh" && "$AllowLocalCopy" -ne "1" ]]; then
   rm -f "SetupMinecraft.sh"
   echo "Local copy of SetupMinecraft.sh running.  Exiting and running online version.  To override set AllowLocalCopy=\"1\" at the top of the script."
-  curl https://raw.githubusercontent.com/TheRemote/RaspberryPiMinecraft/master/SetupMinecraft.sh | bash
+  curl https://raw.githubusercontent.com/snoofy/RaspberryPiMinecraft/master/SetupMinecraft.sh | bash
   exit 1
 fi
 

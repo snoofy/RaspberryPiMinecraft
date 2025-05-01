@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: James A. Chambers - https://jamesachambers.com/
 # More information at https://jamesachambers.com/raspberry-pi-minecraft-server-script-with-startup-service/
-# GitHub Repository: https://github.com/TheRemote/RaspberryPiMinecraft
+# GitHub Repository: https://github.com/snoofy/RaspberryPiMinecraft
 # Minecraft Server startup script using screen -- view the console with screen -r minecraft
 
 # Set path variable

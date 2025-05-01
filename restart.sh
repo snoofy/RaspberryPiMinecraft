@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: James A. Chambers - https://jamesachambers.com/
 # More information at https://jamesachambers.com/raspberry-pi-minecraft-server-script-with-startup-service/
-# GitHub Repository: https://github.com/TheRemote/RaspberryPiMinecraft
+# GitHub Repository: https://github.com/snoofy/RaspberryPiMinecraft
 # Minecraft Server restart script - primarily called by minecraft service but can be ran manually with ./restart.sh
 
 # Set path variable
